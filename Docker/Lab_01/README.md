@@ -23,7 +23,8 @@ The first step was establishing the version control environment:
 
 ### 2. Pulling the Nginx Alpine Image
 To get the lightweight version of Nginx, the `alpine` tag was used to minimize disk footprint.
-* **Command:** ```bash
+* **Command:**
+*   ```bash
     sudo docker pull nginx:alpine
     ```
 * **Explanation:** This fetches the image layers from Docker Hub to the local machine.
