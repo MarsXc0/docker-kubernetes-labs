@@ -16,7 +16,7 @@ This lab is divided into two main tasks focusing on building custom Docker image
 
 * **Step 1: Containerization (Dockerfile)**
     The application uses `python:3.13-alpine` to keep the image lightweight. The `Dockerfile` handles dependency installation and sets the entry point for the Flask app.
-    ![Dockerfile Setup](./Dockerfile-with-build.png)
+    ![Dockerfile Setup](./task-01/Dockerfile-with-build.png)
 
 * **Step 2: Build & Local Execution**
     The image was built as `iti-flask-lab2`. During deployment, port **5000** was mapped to the host, and a memory constraint was applied.
@@ -24,11 +24,11 @@ This lab is divided into two main tasks focusing on building custom Docker image
     docker build -t iti-flask-lab2 .
     docker run -d --name iti-flask-cont -p 127.0.0.1:5000:5000 --memory=100m iti-flask-lab2
     ```
-    ![Running Container](./running.png)
+    ![Running Container](./task-01/running.png)
 
 * **Step 3: Verification (PoC)**
     Testing the application via the local browser to ensure the Flask routes are serving the correct content.
-    ![Application Proof of Concept](./poc.jpg)
+    ![Application Proof of Concept](./task-01/poc.jpg)
 
 * **Step 4: Docker Hub Registry**
     The image was tagged and pushed to the cloud registry for remote accessibility.
@@ -37,7 +37,7 @@ This lab is divided into two main tasks focusing on building custom Docker image
     docker tag iti-flask-lab2 assemragab105/iti-flask-lab2:latest
     docker push assemragab105/iti-flask-lab2:latest
     ```
-    ![Pushing to Registry](./push.png)
+    ![Pushing to Registry](./task-01/push.png)
 
 ---
 
@@ -56,11 +56,11 @@ This lab is divided into two main tasks focusing on building custom Docker image
     ```bash
     docker network create --driver bridge --subnet 10.0.0.0/8 iti-network
     ```
-    ![Network Configuration](./network.png)
+    ![Network Configuration](./task-02/network.png)
 
 * **Step 2: Customizing Apache (Dockerfile)**
     The `httpd` configuration was modified using `sed` to change the listening port to **8080**, and a custom `index.html` was injected.
-    ![Apache Dockerfile](./docFile.png)
+    ![Apache Dockerfile](./task-02/docFile.png)
 
 * **Step 3: Building & Linking**
     The image was built and then executed within the custom network while mounting the volume.
@@ -68,12 +68,12 @@ This lab is divided into two main tasks focusing on building custom Docker image
     docker build -t test-httpd .
     docker run -d --name webserver-iti-n1 --network=iti-network -v mydata:/usr/local/apache2/htdocs -p 8080:8080 test-httpd
     ```
-    ![Building Task 2](./build.png)
+    ![Building Task 2](./task-02/build.png)
 
 * **Step 4: Persistence Verification**
     Confirming that the data exists in the volume path on the host and checking the live web page.
     * **Path:** `/var/lib/docker/volumes/mydata/_data/index.html`
-    ![Final Result](./gen-poc.png)
+    ![Final Result](./task-02/gen-poc.png)
 
 ---
 
