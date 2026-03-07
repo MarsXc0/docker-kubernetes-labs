@@ -1,6 +1,6 @@
 # Lab 1: Docker Fundamentals & Resource Constraints
 
-This lab demonstrates the fundamental operations of Docker, focusing on image management, container deployment with custom naming, and enforcing hardware resource limits (CPU/Memory) using Linux Control Groups (cgroups).
+This lab covers the initial setup of Docker and demonstrates image management, container deployment with custom naming, and enforcing hardware resource limits using Linux Control Groups (cgroups).
 
 ---
 
