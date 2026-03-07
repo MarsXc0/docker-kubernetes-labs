@@ -28,7 +28,7 @@ This lab is divided into two main tasks focusing on building custom Docker image
 
 * **Step 3: Verification (PoC)**
     Testing the application via the local browser to ensure the Flask routes are serving the correct content.
-    ![Application Proof of Concept](./task-01/poc.jpg)
+    ![Application Proof of Concept](./task-01/poc.png)
 
 * **Step 4: Docker Hub Registry**
     The image was tagged and pushed to the cloud registry for remote accessibility.
