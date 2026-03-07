@@ -1,20 +1,27 @@
-# Docker Lab: Container Management and Resource Constraints
+# Lab 1: Docker Fundamentals & Resource Constraints
 
-This repository demonstrates the fundamental operations of Docker, focusing on image management, container deployment with custom naming, and enforcing hardware resource limits (CPU/Memory) using Linux Control Groups (cgroups).
+This lab demonstrates the fundamental operations of Docker, focusing on image management, container deployment with custom naming, and enforcing hardware resource limits (CPU/Memory) using Linux Control Groups (cgroups).
 
 ---
 
 ## Task Overview
-The objective of this lab is to:
-1. Pull and manage Docker images.
-2. Deploy containers with specific configurations (Detached mode & Custom naming).
-3. Implement and verify resource constraints at the OS level (cgroups).
+The objective of **Lab 1** is to:
+1. Initialize the environment (GitHub account setup).
+2. Pull and manage Docker images.
+3. Deploy containers with specific configurations (Detached mode & Custom naming).
+4. Implement and verify resource constraints at the OS level (cgroups).
 
 ---
 
 ## Implementation & Command Reference
 
-### 1. Pulling the Nginx Alpine Image
+### 1. Initial Setup
+The first step was establishing the version control environment:
+* **GitHub:** Created a GitHub account to host and manage the project repositories.
+
+---
+
+### 2. Pulling the Nginx Alpine Image
 To get the lightweight version of Nginx, the `alpine` tag was used to minimize disk footprint.
 * **Command:** ```bash
     sudo docker pull nginx:alpine
@@ -25,7 +32,7 @@ To get the lightweight version of Nginx, the `alpine` tag was used to minimize d
 
 ---
 
-### 2. Deploying a Named Container in Background
+### 3. Deploying a Named Container in Background
 The container was started in the background to keep the terminal session active.
 * **Command:**
     ```bash
@@ -39,7 +46,7 @@ The container was started in the background to keep the terminal session active.
 
 ---
 
-### 3. Resource-Limited Apache Service
+### 4. Resource-Limited Apache Service
 This step ensures that the `httpd` (Apache) container does not consume all host resources.
 * **Command:**
     ```bash
@@ -53,7 +60,7 @@ This step ensures that the `httpd` (Apache) container does not consume all host 
 
 ---
 
-### 4. Verification via Linux cgroups
+### 5. Verification via Linux cgroups
 To prove that Docker actually communicates with the Linux Kernel, we inspected the `cgroups` (Control Groups) filesystem.
 * **Commands used for verification:**
     ```bash
@@ -71,6 +78,7 @@ To prove that Docker actually communicates with the Linux Kernel, we inspected t
 ---
 
 ## Technical Environment
+* **Lab:** #1
 * **OS:** Linux (cgroups v2 enabled)
 * **Container Engine:** Docker
 * **Images:** `nginx:alpine`, `httpd:latest`
