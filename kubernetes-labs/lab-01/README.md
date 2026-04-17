@@ -6,8 +6,6 @@ This lab documents a kubeadm setup with one controlplane and one worker node usi
 
 - Controlplane node: `CONTROLPLANE_IP`
 - Worker node: `WORKER_IP`
-- OS/Version: `YOUR_OS_VERSION`
-- SSH user: `YOUR_SSH_USER`
 - Kubernetes version: `v1.34.6`
 
 ## kubeadm Installation (from gist)
