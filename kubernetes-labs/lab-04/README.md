@@ -2,6 +2,8 @@
 
 This lab was implemented on the cluster and verified with running resources.
 
+If you want a shorter manifest, use `lab-04-simple.yaml` (single file with all resources).
+
 ## 1) Persistent Volumes (5 points)
 
 ### 1.1 Create PV `nginx-pv` (hostPath, 1Gi, Recycle)

@@ -2,6 +2,8 @@
 
 This lab was implemented on a k3s cluster and verified with live commands.
 
+If you want a shorter apply file for this lab, use `lab-03-simple.yaml`.
+
 ## Environment
 
 - Controlplane: `192.168.229.135`

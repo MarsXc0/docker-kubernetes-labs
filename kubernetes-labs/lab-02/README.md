@@ -2,6 +2,8 @@
 
 This lab documents a k3s cluster with one server and one agent node, kubectl context configuration, a kubectl plugin, and a deployment.
 
+If you want a shorter apply file for the namespace and deployment, use `lab-02-simple.yaml`.
+
 ## 1) Create k3s cluster (1 server + 1 agent)
 
 ### Server node
