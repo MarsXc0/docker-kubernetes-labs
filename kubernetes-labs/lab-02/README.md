@@ -37,7 +37,7 @@ kubectl get ns
 
 ```bash
 kubectl config get-contexts
-kubectl config set-context iti-context --cluster=default --user=default --namespace=iti-46
+kubectl config set-context iti-context -n iti-46
 kubectl config use-context iti-context
 kubectl config view --minify
 ```
