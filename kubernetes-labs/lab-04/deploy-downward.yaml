@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: downward-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: downward-nginx
+  template:
+    metadata:
+      labels:
+        app: downward-nginx
+    spec:
+      initContainers:
+        - name: write-index
+          image: busybox:1.36
+          command: ["sh", "-c"]
+          args:
+            - |
+              echo "Pod Name: ${POD_NAME}" > /workdir/index.html
+              echo "Pod IP: ${POD_IP}" >> /workdir/index.html
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          volumeMounts:
+            - name: downward-storage
+              mountPath: /workdir
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: downward-storage
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: downward-storage
+          persistentVolumeClaim:
+            claimName: downward-pvc
